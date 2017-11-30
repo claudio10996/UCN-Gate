@@ -50,7 +50,7 @@ public final class Persona {
     /**
      * Tipo de {@link Persona} dentro de los que esta determinado
      */
-    @Getter enum tipo{académico,funcionario,apoyo,externo};
+    @Getter enum tipo {académico,funcionario,apoyo,externo};
 
     /**
      * Cargo que tiene la {@link Persona} dentro de la universidad
