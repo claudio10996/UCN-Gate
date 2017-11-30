@@ -1,4 +1,4 @@
-package cl.ucn.disc.dam.ucngate;
+package cl.ucn.disc.dam.ucngate.Activities;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import cl.ucn.disc.dam.ucngate.R;
 
 public class ScrollingActivity extends AppCompatActivity {
 
