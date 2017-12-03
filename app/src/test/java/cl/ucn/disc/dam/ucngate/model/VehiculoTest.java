@@ -1,9 +1,7 @@
-package cl.ucn.disc.dam.ucngate;
+package cl.ucn.disc.dam.ucngate.model;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
-
-import cl.ucn.disc.dam.ucngate.Model.Vehiculo;
 
 /**
  * @author Pablo Fontecilla Busch.

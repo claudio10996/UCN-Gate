@@ -1,4 +1,4 @@
-package cl.ucn.disc.dam.ucngate.Model;
+package cl.ucn.disc.dam.ucngate.model;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
