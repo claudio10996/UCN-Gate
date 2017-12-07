@@ -34,6 +34,14 @@ public final class Registro {
      */
     public enum Entrada{Principal,Norte,Sur}
 
+    /**
+     * @return the String representation.
+     */
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+    }
+
 
 
 
