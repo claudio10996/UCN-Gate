@@ -13,7 +13,7 @@ import lombok.Getter;
 public final class Persona {
 
     /**
-     * Rut de la {@link Persona}
+     * Rut de la {@link Persona} con el formato xx.xxx.xxx-x
      */
     @Getter String rut;
 
