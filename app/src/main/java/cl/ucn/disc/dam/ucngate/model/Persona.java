@@ -1,66 +1,84 @@
 package cl.ucn.disc.dam.ucngate.model;
 
+import com.raizlabs.android.dbflow.annotation.Column;
+import com.raizlabs.android.dbflow.annotation.PrimaryKey;
+import com.raizlabs.android.dbflow.annotation.Table;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import java.util.UUID;
+
+import cl.ucn.disc.dam.ucngate.Dao.AppDatabase;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Claudio Gonzalez
  */
 @Builder
+@Table(database = AppDatabase.class)
+@AllArgsConstructor
+@NoArgsConstructor
 public final class Persona {
+
+    /**
+     * ID
+     */
+    @PrimaryKey @Getter UUID id;
 
     /**
      * Rut de la {@link Persona} con el formato xx.xxx.xxx-x
      */
-    @Getter String rut;
+    @Column @Getter String rut;
 
     /**
      * Nombre y apellido de la {@link Persona}
      */
-    @Getter String nombre;
+
+    @Column @Getter String nombre;
 
     /**
      * Correo electronico de la {@link Persona}
      */
-    @Getter String email;
+    @Column @Getter String email;
 
     /**
      * Telefono movil de la {@link Persona}
      */
-    @Getter String telefono;
+    @Column @Getter String telefono;
 
     /**
      * Numero de anexo de la {@link Persona}
      */
-    @Getter String anexo;
+    @Column @Getter String anexo;
 
     /**
      * Localizacion de la {@link Persona}: Unidad/Pabellon
      */
-    @Getter String unidad;
+    @Column @Getter String unidad;
 
     /**
      * Localizacion de la {@link Persona}: Oficina
      */
-    @Getter String oficina;
+    @Column @Getter String oficina;
 
     /**
      * Tipo de la {@link Persona} dentro de los que esta determinado
      */
-    @Getter Tipo tipo;
+    @Column @Getter Tipo tipo;
 
     /**
      * Cargo que tiene la {@link Persona} dentro de la universidad
      */
-    @Getter String cargo;
+    @Column @Getter String cargo;
 
     /**
      * Codigo que se le asigna a un estacionamiento dentro del campus y que es asociado a la {@link Persona}
      */
-    @Getter int codigoEstacionamiento;
+    @Column @Getter int codigoEstacionamiento;
 
 
     /**
