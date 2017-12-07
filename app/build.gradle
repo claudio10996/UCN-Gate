@@ -48,4 +48,10 @@ dependencies {
     // https://mvnrepository.com/artifact/joda-time/joda-time
     implementation group: 'joda-time', name: 'joda-time', version: '2.9.9'
 
+    //TODO: REVISAR ESTO, NO SINCRONIZA
+    // DBFLow
+    annotationProcessor 'com.github.Raizlabs.DBFlow:dbflow-processor:4.1.2'
+    implementation 'com.github.Raizlabs.DBFlow:dbflow-core:4.1.2'
+    implementation 'com.github.Raizlabs.DBFlow:dbflow:4.1.2'
+
 }
