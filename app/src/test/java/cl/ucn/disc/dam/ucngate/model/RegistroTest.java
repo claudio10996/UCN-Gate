@@ -34,18 +34,23 @@ public final class RegistroTest {
 
         DateTime fecha = DateTime.now();
 
-        final Registro registro = registro.builder()
-                .vehiculo(vehiculo)
+        Registro.Entrada entrada= Registro.Entrada.Norte;
+
+        final Registro registro = Registro.builder()
+                .vehiculoIngresado(vehiculo)
                 .fecha(fecha)
+                .entrada(entrada)
                 .build();
 
         Assertions.assertThat(registro).isNotNull();
 
-        Assertions.assertThat(registro.getVehiculo()).isNotBlank();
-        Assertions.assertThat(registro.getFecha()).isNotBlank();
+        Assertions.assertThat(registro.getVehiculoIngresado()).isNotNull();
+        Assertions.assertThat(registro.getFecha()).isNotNull();
+        Assertions.assertThat(registro.getEntrada()).isNotNull();
 
-        Assertions.assertThat(registro.getVehiculo()).isEqualTo(vehiculo);
+        Assertions.assertThat(registro.getVehiculoIngresado()).isEqualTo(vehiculo);
         Assertions.assertThat(registro.getFecha()).isEqualTo(fecha);
+        Assertions.assertThat(registro.getEntrada()).isEqualTo(entrada);
 
     }
 

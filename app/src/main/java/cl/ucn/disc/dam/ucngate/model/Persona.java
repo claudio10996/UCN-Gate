@@ -48,9 +48,9 @@ public final class Persona {
     @Getter String oficina;
 
     /**
-     * Tipo de {@link Persona} dentro de los que esta determinado
+     * Tipo de la {@link Persona} dentro de los que esta determinado
      */
-    @Getter enum tipo {académico,funcionario,apoyo,externo};
+    @Getter Tipo tipo;
 
     /**
      * Cargo que tiene la {@link Persona} dentro de la universidad
@@ -70,6 +70,12 @@ public final class Persona {
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
+
+
+    /**
+     * Tipos de {@link Persona}
+     */
+    public enum Tipo {académico,funcionario,apoyo,externo}
 
 
 
