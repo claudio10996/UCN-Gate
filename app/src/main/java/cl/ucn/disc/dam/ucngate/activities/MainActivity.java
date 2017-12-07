@@ -1,17 +1,10 @@
-package cl.ucn.disc.dam.ucngate.Activities;
+package cl.ucn.disc.dam.ucngate.activities;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.ListActivity;
-import android.graphics.drawable.GradientDrawable;
-import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.widget.BaseAdapter;
-import android.widget.Toast;
 
 import cl.ucn.disc.dam.ucngate.R;
 

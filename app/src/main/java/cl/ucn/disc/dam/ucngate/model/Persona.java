@@ -9,7 +9,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.util.UUID;
 
-import cl.ucn.disc.dam.ucngate.Dao.AppDatabase;
+import cl.ucn.disc.dam.ucngate.dao.AppDatabase;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

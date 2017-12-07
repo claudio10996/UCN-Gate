@@ -1,4 +1,4 @@
-package cl.ucn.disc.dam.ucngate.Dao;
+package cl.ucn.disc.dam.ucngate.dao;
 
 import com.raizlabs.android.dbflow.annotation.Database;
 
