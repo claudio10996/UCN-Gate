@@ -10,7 +10,7 @@ import org.joda.time.DateTime;
 
 import java.util.UUID;
 
-import cl.ucn.disc.dam.ucngate.Dao.AppDatabase;
+import cl.ucn.disc.dam.ucngate.dao.AppDatabase;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
