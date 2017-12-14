@@ -2,18 +2,21 @@ package cl.ucn.disc.dam.ucngate.activities;
 
 import android.app.ActionBar;
 import android.app.ListActivity;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.BaseAdapter;
 
 import cl.ucn.disc.dam.ucngate.R;
+import cl.ucn.disc.dam.ucngate.adapters.VehiculoDBFlowAdapter;
 
 public class MainActivity extends ListActivity {
 
-//    /**
-//     * Adapter de {@link com.durrutia.dnews.model.Article}.
-//     */
-//    private BaseAdapter vehiculoAdapter;
+    /**
+     * Adapter de {@link }.
+     */
+    private BaseAdapter vehiculoAdapter;
 //
 //    /**
 //     * Running background task
@@ -37,20 +40,20 @@ public class MainActivity extends ListActivity {
             actionBar.show();
         }
 
-//        // Row division
-//        int[] colors = {0, 0x00000000, 0};
-//        this.getListView().setDivider(new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT, colors));
-//        this.getListView().setDividerHeight(5);
-//
-//        // Adaptador de articles
-//        this.vehiculoAdapter = new VehiculoDBFlowAdapter(this);
-//        super.setListAdapter(this.vehiculoAdapter);
-//
-//        // Si no hay articulos en el adaptador (y por lo tanto en la base de datos) ..
-//        if (this.vehiculoAdapter.isEmpty()) {
-//            // .. ejecuto la tarea para obtenerlas.
-//            this.runGetAndSaveVehiculosTask();
-//        }
+        // Row division
+        int[] colors = {0, 0x00000000, 0};
+        this.getListView().setDivider(new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT, colors));
+        this.getListView().setDividerHeight(5);
+
+        // Adaptador de articles
+        this.vehiculoAdapter = new VehiculoDBFlowAdapter(this);
+        super.setListAdapter(this.vehiculoAdapter);
+
+        // Si no hay articulos en el adaptador (y por lo tanto en la base de datos) ..
+        if (this.vehiculoAdapter.isEmpty()) {
+            // .. ejecuto la tarea para obtenerlas.
+ //           this.runGetAndSaveVehiculosTask();
+        }
     }
 //
 //    /**

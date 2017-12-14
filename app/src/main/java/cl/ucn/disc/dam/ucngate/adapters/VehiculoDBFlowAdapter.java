@@ -137,7 +137,6 @@ public final class VehiculoDBFlowAdapter extends BaseAdapter {
     /**
      * Viewholder pattern
      */
-    @Slf4j
     private static class ViewHolder {
 
         TextView patente;
