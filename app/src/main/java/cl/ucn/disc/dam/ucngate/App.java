@@ -2,6 +2,8 @@ package cl.ucn.disc.dam.ucngate;
 
 import android.app.Application;
 
+import com.raizlabs.android.dbflow.config.FlowManager;
+
 /**
  * Created by arago on 07-Dec-17.
  */
@@ -19,6 +21,10 @@ public final class App extends Application {
      */
     @Override
     public void onCreate() {
+
         super.onCreate();
+        FlowManager.init(this); //TODO: Verificar que esto quedara aqui
     }
+
+
 }
