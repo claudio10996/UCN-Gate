@@ -11,6 +11,8 @@ import com.raizlabs.android.dbflow.structure.ModelAdapter;
 
 //import org.assertj.core.api.Assertions;
 import static org.junit.Assert.*;
+
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -22,13 +24,14 @@ import cl.ucn.disc.dam.ucngate.model.Persona;
 import cl.ucn.disc.dam.ucngate.model.Persona_Table;
 
 /**
- * Created by Claudio Gonzalez on 14-12-2017.
+ * @author Claudio Gonzalez
  */
 @RunWith(AndroidJUnit4.class)
 public final class AppDatabaseTest {
 
     @Test
-    public void testDatabase() {
+    public void useAppContext() throws Exception {
+
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
         FlowManager.init(appContext);
@@ -74,30 +77,9 @@ public final class AppDatabaseTest {
 
         System.out.print(databasePersona);
 
-        /*Assertions.assertThat(databasePersona).isNotNull();
-
-        Assertions.assertThat(databasePersona.getRut()).isNotBlank();
-        Assertions.assertThat(databasePersona.getNombre()).isNotBlank();
-        Assertions.assertThat(databasePersona.getEmail()).isNotBlank();
-        Assertions.assertThat(databasePersona.getTelefono()).isNotBlank();
-        Assertions.assertThat(databasePersona.getAnexo()).isNotBlank();
-        Assertions.assertThat(databasePersona.getUnidad()).isNotBlank();
-        Assertions.assertThat(databasePersona.getOficina()).isNotBlank();
-        Assertions.assertThat(databasePersona.getCargo()).isNotBlank();
-        Assertions.assertThat(databasePersona.getTipo()).isNotNull();
-        Assertions.assertThat(databasePersona.getCodigoEstacionamiento()).isNotNull();
-
-        Assertions.assertThat(databasePersona.getRut()).isEqualTo(persona.getRut());
-        Assertions.assertThat(databasePersona.getNombre()).isEqualTo(persona.getNombre());
-        Assertions.assertThat(databasePersona.getEmail()).isEqualTo(persona.getEmail());
-        Assertions.assertThat(databasePersona.getTelefono()).isEqualTo(persona.getTelefono());
-        Assertions.assertThat(databasePersona.getAnexo()).isEqualTo(persona.getAnexo());
-        Assertions.assertThat(databasePersona.getUnidad()).isEqualTo(persona.getUnidad());
-        Assertions.assertThat(databasePersona.getOficina()).isEqualTo(persona.getOficina());
-        Assertions.assertThat(databasePersona.getCargo()).isEqualTo(persona.getCargo());
-        Assertions.assertThat(databasePersona.getTipo()).isEqualTo(persona.getTipo());
-        Assertions.assertThat(databasePersona.getCodigoEstacionamiento()).isEqualTo(persona.getCodigoEstacionamiento());
-*/
+        assertNotNull(databasePersona);
+        assertEquals(persona.getNombre(), databasePersona.getNombre());
+        assertEquals(persona.getCodigoEstacionamiento(),databasePersona.getCodigoEstacionamiento());
 
 
 
