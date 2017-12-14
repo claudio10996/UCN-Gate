@@ -145,7 +145,7 @@ public class MainActivity extends ListActivity {
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         final MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_manu, menu);
+        inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
 //
