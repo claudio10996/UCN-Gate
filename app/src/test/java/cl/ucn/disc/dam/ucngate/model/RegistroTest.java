@@ -4,6 +4,8 @@ import org.assertj.core.api.Assertions;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
+import java.util.Date;
+
 /**
  * @author Pablo Fontecilla Busch.
  */
@@ -32,7 +34,7 @@ public final class RegistroTest {
                 .descripcion(descripcion)
                 .build();
 
-        DateTime fecha = DateTime.now();
+        Date fecha = new Date(2017,12,14);
 
         Registro.Entrada entrada= Registro.Entrada.Norte;
 
