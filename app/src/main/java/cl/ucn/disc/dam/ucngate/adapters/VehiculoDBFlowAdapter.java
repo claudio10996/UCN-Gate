@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import com.raizlabs.android.dbflow.StringUtils;
 import com.raizlabs.android.dbflow.list.FlowCursorList;
@@ -13,9 +14,11 @@ import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import java.util.Collections;
 
+import cl.ucn.disc.dam.ucngate.R;
 import cl.ucn.disc.dam.ucngate.model.Vehiculo;
 import cl.ucn.disc.dam.ucngate.model.Vehiculo_Table;
 import lombok.NonNull;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Created by arago on 14-Dec-17.
@@ -57,7 +60,7 @@ public final class VehiculoDBFlowAdapter extends BaseAdapter {
      */
     @Override
     public int getCount() {
-        return 0;
+        return (int) flowCursorList.getCount();
     }
 
     /**
@@ -68,8 +71,8 @@ public final class VehiculoDBFlowAdapter extends BaseAdapter {
      * @return The data at the specified position.
      */
     @Override
-    public Object getItem(int position) {
-        return null;
+    public Vehiculo getItem(int position) {
+        return flowCursorList.getItem(position);
     }
 
     /**
@@ -80,7 +83,7 @@ public final class VehiculoDBFlowAdapter extends BaseAdapter {
      */
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     /**
@@ -103,6 +106,53 @@ public final class VehiculoDBFlowAdapter extends BaseAdapter {
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+
+        final ViewHolder viewHolder;
+        final View view;
+
+        if (convertView == null) {
+            view = LayoutInflater.from(context).inflate(R.layout.row_vehiculo, parent, false);
+            viewHolder = new ViewHolder(view);
+            view.setTag(viewHolder);
+
+        } else {
+            view = convertView;
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
+
+        final Vehiculo vehiculo = this.getItem(position);
+        if (vehiculo != null) {
+
+            viewHolder.patente.setText(vehiculo.getPatente());
+            viewHolder.nombre.setText(vehiculo.getResponsable().getNombre());
+            viewHolder.marca.setText(vehiculo.getMarca());
+            viewHolder.anio.setText(vehiculo.getAnio());
+            viewHolder.tipo.setText(vehiculo.getResponsable().getTipo().toString());
+
+        }
+
+        return view;
+    }
+
+    /**
+     * Viewholder pattern
+     */
+    @Slf4j
+    private static class ViewHolder {
+
+        TextView patente;
+        TextView nombre;
+        TextView marca;
+        TextView anio;
+        TextView tipo;
+
+        ViewHolder(final View view) {
+            this.patente = view.findViewById(R.id.rv_patente);
+            this.nombre = view.findViewById(R.id.rv_nombre);
+            this.marca = view.findViewById(R.id.rv_marca);
+            this.anio = view.findViewById(R.id.rv_anio);
+            this.tipo = view.findViewById(R.id.rv_tipo);
+        }
+
     }
 }
