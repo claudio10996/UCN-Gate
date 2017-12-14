@@ -6,8 +6,12 @@ import com.raizlabs.android.dbflow.annotation.Database;
  * @author Claudio Gonzalez
  */
 
-@Database(version = AppDatabase.VERSION)
+@Database(name = AppDatabase.NAME, version = AppDatabase.VERSION, foreignKeyConstraintsEnforced = true)
 public final class AppDatabase {
+
+
+    public static final String NAME = "AppDatabase";
+
     /**
      * La version
      */

@@ -1,11 +1,14 @@
 package cl.ucn.disc.dam.ucngate.model;
 
 import com.raizlabs.android.dbflow.annotation.Column;
+import com.raizlabs.android.dbflow.annotation.ForeignKey;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+
+import java.util.UUID;
 
 import cl.ucn.disc.dam.ucngate.dao.AppDatabase;
 import lombok.AllArgsConstructor;
@@ -26,9 +29,14 @@ import lombok.NoArgsConstructor;
 public final class Vehiculo {
 
     /**
+     * ID
+     */
+    @PrimaryKey @Getter UUID id;
+
+    /**
      * Patente del {@link Vehiculo} con el formato AA-AA-11.
      */
-    @PrimaryKey @Getter String patente;
+    @Column @Getter String patente;
 
     /**
      * Marca del {@link Vehiculo}.
@@ -54,6 +62,11 @@ public final class Vehiculo {
      * Pequeña descripcion del {@link Vehiculo}.
      */
     @Column @Getter String descripcion;
+
+    /**
+     * Identificador en la base de datos de responsable del {@link Vehiculo}.
+     */
+    @ForeignKey @Getter Persona responsable;
 
 
     /**
