@@ -4,9 +4,14 @@ import android.app.ActionBar;
 import android.app.ListActivity;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+
+import java.util.zip.Inflater;
 
 import cl.ucn.disc.dam.ucngate.R;
 import cl.ucn.disc.dam.ucngate.adapters.VehiculoDBFlowAdapter;
@@ -33,6 +38,11 @@ public class MainActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        ViewGroup viewG = (ViewGroup) findViewById(android.R.id.content);
+
+        final LayoutInflater inflater = getLayoutInflater();
+        inflater.inflate(R.layout.activity_main,viewG );
+
         // Mostrar la barrita
         final ActionBar actionBar = super.getActionBar();
         if (actionBar != null) {
@@ -44,7 +54,7 @@ public class MainActivity extends ListActivity {
         }
 
         // Row division
-        int[] colors = {0, 0x00000000, 0};
+        int[] colors = {0, 0xFFFFFFFF, 0};
         this.getListView().setDivider(new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT, colors));
         this.getListView().setDividerHeight(5);
 
