@@ -4,18 +4,18 @@ import android.os.AsyncTask;
 
 import java.util.List;
 
-import cl.ucn.disc.dam.ucngate.VehiculoController;
+import cl.ucn.disc.dam.ucngate.Controller;
 import cl.ucn.disc.dam.ucngate.model.Vehiculo;
 
 /**
  * @author Claudio Gonzalez
  */
 
-public final class GetVehiculosTask extends AsyncTask<Void, Void, List<Vehiculo>> {
+public final class GetDataTask extends AsyncTask<Void, Void, List<Vehiculo>> {
 
     @Override
     protected List<Vehiculo> doInBackground(Void... voids) {
-        VehiculoController controlador = new VehiculoController();
+        Controller controlador = new Controller();
         return controlador.getVehiculos();
     }
 }

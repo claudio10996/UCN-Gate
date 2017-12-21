@@ -8,7 +8,7 @@ import cl.ucn.disc.dam.ucngate.model.Vehiculo;
  * @author Claudio Gonzalez
  */
 
-public final class VehiculoController {
+public final class Controller {
 
     public List <Vehiculo> getVehiculos (){
         return null;

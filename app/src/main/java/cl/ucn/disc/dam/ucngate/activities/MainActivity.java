@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 
 import cl.ucn.disc.dam.ucngate.R;
 import cl.ucn.disc.dam.ucngate.adapters.VehiculoDBFlowAdapter;
-import cl.ucn.disc.dam.ucngate.tasks.GetVehiculosTask;
+import cl.ucn.disc.dam.ucngate.tasks.GetDataTask;
 
 import lombok.Getter;
 
@@ -24,7 +24,7 @@ public class MainActivity extends ListActivity {
     /**
      * Running background task
      */
-    @Getter private GetVehiculosTask VehiculosTask;
+    @Getter private GetDataTask dataTask;
 
     /**
      * @param savedInstanceState
@@ -36,7 +36,7 @@ public class MainActivity extends ListActivity {
         // Mostrar la barrita
         final ActionBar actionBar = super.getActionBar();
         if (actionBar != null) {
-            // actionBar.setLogo(R.drawable.ic_launcher_foreground);
+            actionBar.setLogo(R.drawable.ic_launcher_foreground);
             actionBar.setDisplayUseLogoEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeButtonEnabled(true);
@@ -55,6 +55,7 @@ public class MainActivity extends ListActivity {
         // Si no hay articulos en el adaptador (y por lo tanto en la base de datos) ..
         if (this.vehiculoAdapter.isEmpty()) {
             // .. ejecuto la tarea para obtenerlas.
+            this.getDataTask();
         }
     }
 //
