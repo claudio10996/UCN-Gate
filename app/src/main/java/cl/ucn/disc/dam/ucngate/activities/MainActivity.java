@@ -3,14 +3,18 @@ package cl.ucn.disc.dam.ucngate.activities;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.zip.Inflater;
@@ -24,6 +28,8 @@ import lombok.Getter;
 public class MainActivity extends Activity {
 
     private ListView lista;
+
+    private EditText search;
 
     /**
      * Adapter de {@link }.
@@ -46,10 +52,31 @@ public class MainActivity extends Activity {
         lista = (ListView) findViewById(R.id.lista);
 
         // Adaptador de articles
-        this.vehiculoAdapter = new VehiculoDBFlowAdapter(this);
+        this.vehiculoAdapter = new VehiculoDBFlowAdapter(this, "");
 //        super.setListAdapter(this.vehiculoAdapter);
 
+        final Context context = this;
+
         lista.setAdapter(this.vehiculoAdapter);
+
+        search = (EditText) findViewById(R.id.am_search);
+
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                vehiculoAdapter = new VehiculoDBFlowAdapter(context, s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
 //        ViewGroup viewG = (ViewGroup) findViewById(android.R.id.content);
 //

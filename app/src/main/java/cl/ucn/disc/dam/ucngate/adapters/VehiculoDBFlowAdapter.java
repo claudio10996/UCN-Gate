@@ -13,6 +13,7 @@ import com.raizlabs.android.dbflow.sql.language.OrderBy;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import java.util.Collections;
+import java.util.List;
 
 import cl.ucn.disc.dam.ucngate.R;
 import cl.ucn.disc.dam.ucngate.model.Vehiculo;
@@ -40,7 +41,7 @@ public final class VehiculoDBFlowAdapter extends BaseAdapter {
      *
      * @param context to get the {@link LayoutInflater}.
      */
-    public VehiculoDBFlowAdapter(@NonNull final Context context) {
+    public VehiculoDBFlowAdapter(@NonNull final Context context, String filtro) {
 
         this.context = context;
 
