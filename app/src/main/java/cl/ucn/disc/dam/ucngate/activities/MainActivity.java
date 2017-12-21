@@ -10,6 +10,9 @@ import android.widget.BaseAdapter;
 
 import cl.ucn.disc.dam.ucngate.R;
 import cl.ucn.disc.dam.ucngate.adapters.VehiculoDBFlowAdapter;
+import cl.ucn.disc.dam.ucngate.tasks.GetVehiculosTask;
+
+import lombok.Getter;
 
 public class MainActivity extends ListActivity {
 
@@ -17,12 +20,12 @@ public class MainActivity extends ListActivity {
      * Adapter de {@link }.
      */
     private BaseAdapter vehiculoAdapter;
-//
-//    /**
-//     * Running background task
-//     */
-//    private GetSaveVehiculosTask getSaveVehiculosTask;
-//
+
+    /**
+     * Running background task
+     */
+    @Getter private GetVehiculosTask VehiculosTask;
+
     /**
      * @param savedInstanceState
      */
@@ -52,7 +55,6 @@ public class MainActivity extends ListActivity {
         // Si no hay articulos en el adaptador (y por lo tanto en la base de datos) ..
         if (this.vehiculoAdapter.isEmpty()) {
             // .. ejecuto la tarea para obtenerlas.
- //           this.runGetAndSaveVehiculosTask();
         }
     }
 //
