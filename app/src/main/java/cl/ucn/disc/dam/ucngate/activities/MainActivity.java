@@ -1,6 +1,7 @@
 package cl.ucn.disc.dam.ucngate.activities;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.ListActivity;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 
 import java.util.zip.Inflater;
 
@@ -19,7 +21,9 @@ import cl.ucn.disc.dam.ucngate.tasks.GetDataTask;
 
 import lombok.Getter;
 
-public class MainActivity extends ListActivity {
+public class MainActivity extends Activity {
+
+    private ListView lista;
 
     /**
      * Adapter de {@link }.
@@ -37,36 +41,45 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        ViewGroup viewG = (ViewGroup) findViewById(android.R.id.content);
-
-        final LayoutInflater inflater = getLayoutInflater();
-        inflater.inflate(R.layout.activity_main,viewG );
-
-        // Mostrar la barrita
-        final ActionBar actionBar = super.getActionBar();
-        if (actionBar != null) {
-            actionBar.setLogo(R.drawable.ic_launcher_foreground);
-            actionBar.setDisplayUseLogoEnabled(true);
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeButtonEnabled(true);
-            actionBar.show();
-        }
-
-        // Row division
-        int[] colors = {0, 0xFFFFFFFF, 0};
-        this.getListView().setDivider(new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT, colors));
-        this.getListView().setDividerHeight(5);
+        lista = (ListView) findViewById(R.id.lista);
 
         // Adaptador de articles
         this.vehiculoAdapter = new VehiculoDBFlowAdapter(this);
-        super.setListAdapter(this.vehiculoAdapter);
+//        super.setListAdapter(this.vehiculoAdapter);
 
-        // Si no hay articulos en el adaptador (y por lo tanto en la base de datos) ..
-        if (this.vehiculoAdapter.isEmpty()) {
-            // .. ejecuto la tarea para obtenerlas.
-            this.getDataTask();
-        }
+        lista.setAdapter(this.vehiculoAdapter);
+
+//        ViewGroup viewG = (ViewGroup) findViewById(android.R.id.content);
+//
+//        final LayoutInflater inflater = getLayoutInflater();
+//        inflater.inflate(R.layout.activity_main,viewG );
+
+//        // Mostrar la barrita
+//        final ActionBar actionBar = super.getActionBar();
+//        if (actionBar != null) {
+////            actionBar.setLogo(R.drawable.ic_launcher_foreground);
+//            actionBar.setDisplayUseLogoEnabled(true);
+//            actionBar.setDisplayHomeAsUpEnabled(true);
+//            actionBar.setHomeButtonEnabled(true);
+//            actionBar.show();
+//        }
+
+//        // Row division
+//        int[] colors = {0, 0xFFFFFFFF, 0};
+//        this.getListView().setDivider(new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT, colors));
+//        this.getListView().setDividerHeight(5);
+
+//        // Adaptador de articles
+//        this.vehiculoAdapter = new VehiculoDBFlowAdapter(this);
+//        super.setListAdapter(this.vehiculoAdapter);
+
+//        // Si no hay articulos en el adaptador (y por lo tanto en la base de datos) ..
+//        if (this.vehiculoAdapter.isEmpty()) {
+//            // .. ejecuto la tarea para obtenerlas.
+//            this.getDataTask();
+//        }
     }
 //
 //    /**
