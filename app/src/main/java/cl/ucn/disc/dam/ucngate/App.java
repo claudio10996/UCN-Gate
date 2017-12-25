@@ -59,7 +59,7 @@ public final class App extends Application {
 
         personaAdapter.insert(persona);
 
-        String patente = "TG-EE-24";
+        String patente = "AA-FF-67";
         String marca = "Chevrolet";
         String color = "azul";
         String modelo = "Corvette";

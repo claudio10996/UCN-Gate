@@ -13,28 +13,41 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import java.util.zip.Inflater;
 
 import cl.ucn.disc.dam.ucngate.R;
 import cl.ucn.disc.dam.ucngate.adapters.VehiculoDBFlowAdapter;
+import cl.ucn.disc.dam.ucngate.model.Registro;
 import cl.ucn.disc.dam.ucngate.tasks.GetDataTask;
 
 import lombok.Getter;
 
 public class MainActivity extends Activity {
 
+    /**
+     * Lista de la actividad
+     */
     private ListView lista;
 
+    /**
+     * Texto en el cual se buscará la patente
+     */
     private EditText search;
 
     /**
      * Adapter de {@link }.
      */
     private BaseAdapter vehiculoAdapter;
+
+    private Spinner listaPorteria;
+
+    private Registro.Entrada [] entradas= {Registro.Entrada.Principal,Registro.Entrada.Norte,Registro.Entrada.Sur};
 
     /**
      * Running background task
@@ -51,7 +64,7 @@ public class MainActivity extends Activity {
 
         lista = (ListView) findViewById(R.id.lista);
 
-        // Adaptador de articles
+        // Adaptador de vehiculos
         this.vehiculoAdapter = new VehiculoDBFlowAdapter(this, "");
 //        super.setListAdapter(this.vehiculoAdapter);
 
@@ -60,6 +73,10 @@ public class MainActivity extends Activity {
         lista.setAdapter(this.vehiculoAdapter);
 
         search = (EditText) findViewById(R.id.am_search);
+
+        listaPorteria = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<Registro.Entrada> adaptadorEntrada = new ArrayAdapter<Registro.Entrada>(this,android.R.layout.simple_spinner_item,entradas);
+        listaPorteria.setAdapter(adaptadorEntrada);
 
         search.addTextChangedListener(new TextWatcher() {
             @Override
@@ -70,6 +87,7 @@ public class MainActivity extends Activity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 vehiculoAdapter = new VehiculoDBFlowAdapter(context, s.toString());
+                lista.setAdapter(vehiculoAdapter);
             }
 
             @Override

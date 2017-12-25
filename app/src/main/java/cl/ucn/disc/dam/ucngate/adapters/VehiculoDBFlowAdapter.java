@@ -44,13 +44,24 @@ public final class VehiculoDBFlowAdapter extends BaseAdapter {
     public VehiculoDBFlowAdapter(@NonNull final Context context, String filtro) {
 
         this.context = context;
+        if (filtro.equals("")){
+            // SQL to get data
+            this.flowCursorList = new FlowCursorList.Builder<>(
+                    SQLite.select()
+                            .from(Vehiculo.class)
+                            .orderBy(OrderBy.fromProperty(Vehiculo_Table.patente))
+            ).build();
+        }else{
+            // SQL to get data
+            this.flowCursorList = new FlowCursorList.Builder<>(
+                    SQLite.select()
+                            .from(Vehiculo.class)
+                            .where(Vehiculo_Table.patente.like("%"+filtro+"%"))
+                            .orderBy(OrderBy.fromProperty(Vehiculo_Table.patente))
+            ).build();
 
-        // SQL to get data
-        this.flowCursorList = new FlowCursorList.Builder<>(
-                SQLite.select()
-                        .from(Vehiculo.class)
-                        .orderBy(OrderBy.fromProperty(Vehiculo_Table.patente))
-        ).build();
+        }
+
 
     }
 
