@@ -133,6 +133,7 @@ public final class RegistroDBFlowAdapter extends BaseAdapter {
             viewHolder.marca.setText(registro.getVehiculoIngresado().getMarca());
             viewHolder.anio.setText(registro.getVehiculoIngresado().getAnio());
             viewHolder.tipo.setText(registro.getVehiculoIngresado().getResponsable().getTipo().toString());
+            viewHolder.entrada.setText(registro.getEntrada().toString());
 
         }
 
@@ -150,6 +151,7 @@ public final class RegistroDBFlowAdapter extends BaseAdapter {
         TextView marca;
         TextView anio;
         TextView tipo;
+        TextView entrada;
 
         ViewHolder(final View view) {
             this.fecha = view.findViewById(R.id.rr_fecha);
@@ -158,6 +160,7 @@ public final class RegistroDBFlowAdapter extends BaseAdapter {
             this.marca = view.findViewById(R.id.rr_marca);
             this.anio = view.findViewById(R.id.rr_anio);
             this.tipo = view.findViewById(R.id.rr_tipo);
+            this.entrada = view.findViewById(R.id.rr_entrada);
         }
 
     }
