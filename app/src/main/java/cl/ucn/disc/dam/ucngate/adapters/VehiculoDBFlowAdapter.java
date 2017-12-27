@@ -136,10 +136,10 @@ public final class VehiculoDBFlowAdapter extends BaseAdapter {
         if (vehiculo != null) {
 
             viewHolder.patente.setText(vehiculo.getPatente());
-            //viewHolder.nombre.setText(vehiculo.getResponsable().getNombre());
+            viewHolder.nombre.setText(vehiculo.getResponsable().getNombre());
             viewHolder.marca.setText(vehiculo.getMarca());
             viewHolder.anio.setText(vehiculo.getAnio());
-//            viewHolder.tipo.setText(vehiculo.getResponsable().getTipo().toString());
+            viewHolder.tipo.setText(vehiculo.getResponsable().getTipo().toString());
 
         }
 
@@ -159,10 +159,10 @@ public final class VehiculoDBFlowAdapter extends BaseAdapter {
 
         ViewHolder(final View view) {
             this.patente = view.findViewById(R.id.rv_patente);
-            //this.nombre = view.findViewById(R.id.rv_nombre);
+            this.nombre = view.findViewById(R.id.rv_nombre);
             this.marca = view.findViewById(R.id.rv_marca);
             this.anio = view.findViewById(R.id.rv_anio);
-//            this.tipo = view.findViewById(R.id.rv_tipo);
+            this.tipo = view.findViewById(R.id.rv_tipo);
         }
 
     }
