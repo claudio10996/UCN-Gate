@@ -6,7 +6,12 @@ import android.util.Log;
 import com.raizlabs.android.dbflow.config.FlowManager;
 import com.raizlabs.android.dbflow.structure.ModelAdapter;
 
+import org.joda.time.DateTime;
+
+import java.util.Date;
+
 import cl.ucn.disc.dam.ucngate.model.Persona;
+import cl.ucn.disc.dam.ucngate.model.Registro;
 import cl.ucn.disc.dam.ucngate.model.Vehiculo;
 
 /**
@@ -32,7 +37,7 @@ public final class App extends Application {
 
         //Construyo la persona
         String rut = "19.034.687-0";
-        String nombre = "Vladimir Gonzales";
+        String nombre = "Claudio Gonzales";
         String email = "algo@gmail.com";
         String telefono = "123467";
         String anexo = "23";
@@ -61,9 +66,9 @@ public final class App extends Application {
 
         Log.d("", persona.toString());
 
-        String patente = "TG-AA-24";
+        String patente = "ZZ-AA-24";
         String marca = "Chevrolet";
-        String color = "azul";
+        String color = "rojo";
         String modelo = "Corvette";
         String anio = "2010";
         String descripcion = "El vehículo no tiene ningun detalle interesante";
@@ -83,6 +88,20 @@ public final class App extends Application {
         vehiculoAdapter.insert(vehiculo);
 
         Log.d("", vehiculo.toString());
+
+        Date fecha = new Date();
+        fecha = DateTime.now().toDate();
+        Registro.Entrada entrada = Registro.Entrada.Sur;
+
+        final Registro registo = Registro.builder()
+                .vehiculoIngresado(vehiculo)
+                .fecha(fecha)
+                .entrada(entrada)
+                .build();
+
+        ModelAdapter<Registro> registroModelAdapter = FlowManager.getModelAdapter(Registro.class);
+
+        registroModelAdapter.insert(registo);
 
     }
 

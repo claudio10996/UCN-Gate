@@ -13,6 +13,9 @@ import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import cl.ucn.disc.dam.ucngate.R;
 import cl.ucn.disc.dam.ucngate.model.Registro;
 import cl.ucn.disc.dam.ucngate.model.Registro_Table;
@@ -121,8 +124,10 @@ public final class RegistroDBFlowAdapter extends BaseAdapter {
         final Registro registro = this.getItem(position);
         if (registro != null) {
 
-            viewHolder.fecha.setText((CharSequence) registro.getFecha());
-            viewHolder.hora.setText((int) registro.getFecha().getTime());
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yy:HH:mm:SS");
+            String fecha = dateFormat.format(registro.getFecha());
+
+            viewHolder.fecha.setText(fecha);
             viewHolder.patente.setText(registro.getVehiculoIngresado().getPatente());
             viewHolder.nombre.setText(registro.getVehiculoIngresado().getResponsable().getNombre());
             viewHolder.marca.setText(registro.getVehiculoIngresado().getMarca());
@@ -140,7 +145,6 @@ public final class RegistroDBFlowAdapter extends BaseAdapter {
     private static class ViewHolder {
 
         TextView fecha;
-        TextView hora;
         TextView patente;
         TextView nombre;
         TextView marca;
@@ -149,7 +153,6 @@ public final class RegistroDBFlowAdapter extends BaseAdapter {
 
         ViewHolder(final View view) {
             this.fecha = view.findViewById(R.id.rr_fecha);
-            this.hora = view.findViewById(R.id.rr_hora);
             this.patente = view.findViewById(R.id.rr_patente);
             this.nombre = view.findViewById(R.id.rr_nombre);
             this.marca = view.findViewById(R.id.rr_marca);
