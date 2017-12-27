@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.text.Editable;
@@ -273,7 +274,9 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-
+            case R.id.registros:
+                startActivity(new Intent(MainActivity.this, ListaRegistrosActivity.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

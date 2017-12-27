@@ -98,4 +98,11 @@
     <string name="datos_veh_culo_y_responsable">Datos vehículo y responsable</string>
     <string name="registrar_ingreso">Registrar Ingreso</string>
     <string name="menu_registros">Registros</string>
+    <string name="hora">Hora</string>
+    <string name="fecha">Fecha</string>
+    <string name="anio">Anio</string>
+    <string name="cargo">Cargo</string>
+    <string name="modelo">Modelo</string>
+    <string name="nombre">Nombre</string>
+    <string name="patente">Patente</string>
 </resources>
