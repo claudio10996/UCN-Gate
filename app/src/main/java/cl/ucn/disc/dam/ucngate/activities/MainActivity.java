@@ -25,6 +25,12 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.raizlabs.android.dbflow.config.FlowManager;
+import com.raizlabs.android.dbflow.structure.ModelAdapter;
+
+import org.joda.time.DateTime;
+
+import java.util.Date;
 import java.util.zip.Inflater;
 
 import cl.ucn.disc.dam.ucngate.R;
@@ -158,6 +164,18 @@ public class MainActivity extends Activity {
                     @Override
                     public void onClick(View view) {
                         //TODO: REGISTRAR INGRESO
+                        Date fecha = new Date();
+                        fecha = DateTime.now().toDate();
+
+                        final Registro registo = Registro.builder()
+                                .vehiculoIngresado(vehi)
+                                .fecha(fecha)
+                                .entrada((Registro.Entrada) listaPorteria.getSelectedItem())
+                                .build();
+
+                        ModelAdapter<Registro> registroModelAdapter = FlowManager.getModelAdapter(Registro.class);
+
+                        registroModelAdapter.insert(registo);
                     }
                 });
                 mBuilder.setView(mView);
