@@ -61,7 +61,7 @@ public final class App extends Application {
 
         Log.d("", persona.toString());
 
-        String patente = "TG-EE-24";
+        String patente = "TG-AA-24";
         String marca = "Chevrolet";
         String color = "azul";
         String modelo = "Corvette";
