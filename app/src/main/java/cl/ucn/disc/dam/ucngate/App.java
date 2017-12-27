@@ -1,6 +1,7 @@
 package cl.ucn.disc.dam.ucngate;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.raizlabs.android.dbflow.config.FlowManager;
 import com.raizlabs.android.dbflow.structure.ModelAdapter;
@@ -41,7 +42,6 @@ public final class App extends Application {
         Persona.Tipo tipo= Persona.Tipo.académico;
         int codigo = 29;
 
-
         final Persona persona = Persona.builder()
                 .rut(rut)
                 .nombre(nombre)
@@ -59,7 +59,9 @@ public final class App extends Application {
 
         personaAdapter.insert(persona);
 
-        String patente = "AA-FF-67";
+        Log.d("", persona.toString());
+
+        String patente = "TG-EE-24";
         String marca = "Chevrolet";
         String color = "azul";
         String modelo = "Corvette";
@@ -79,6 +81,8 @@ public final class App extends Application {
         ModelAdapter<Vehiculo> vehiculoAdapter = FlowManager.getModelAdapter(Vehiculo.class);
 
         vehiculoAdapter.insert(vehiculo);
+
+        Log.d("", vehiculo.toString());
 
     }
 

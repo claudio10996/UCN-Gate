@@ -31,7 +31,7 @@ public final class Vehiculo {
     /**
      * ID
      */
-    @PrimaryKey @Getter UUID id;
+    @PrimaryKey(autoincrement = true) @Getter long id;
 
     /**
      * Patente del {@link Vehiculo} con el formato AA-AA-11.

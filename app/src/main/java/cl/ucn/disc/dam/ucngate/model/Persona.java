@@ -27,7 +27,7 @@ public final class Persona {
     /**
      * ID
      */
-    @PrimaryKey @Getter UUID id;
+    @PrimaryKey(autoincrement = true) @Getter long id;
 
     /**
      * Rut de la {@link Persona} con el formato xx.xxx.xxx-x

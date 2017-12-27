@@ -32,7 +32,7 @@ public final class Registro {
     /**
      * ID
      */
-    @PrimaryKey @Getter UUID id;
+    @PrimaryKey(autoincrement = true) @Getter long id;
 
     /**
      * {@link Vehiculo} que ingreso a la universidad
