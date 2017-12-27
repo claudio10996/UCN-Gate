@@ -10,57 +10,51 @@
         android:id="@+id/rr_patente"
         android:layout_width="68dp"
         android:layout_height="19dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="220dp"
         android:layout_marginTop="8dp"
         android:text="@string/patente"
-        app:layout_constraintStart_toEndOf="@+id/rr_entrada"
-        app:layout_constraintTop_toBottomOf="@+id/rr_nombre" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/rr_nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/nombre"
-        app:layout_constraintStart_toEndOf="@+id/rr_fecha"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rr_entrada" />
 
     <TextView
         android:id="@+id/rr_marca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="220dp"
         android:layout_marginTop="8dp"
         android:text="@string/modelo"
-        app:layout_constraintStart_toEndOf="@+id/rr_patente"
-        app:layout_constraintTop_toBottomOf="@+id/rr_tipo" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rr_patente" />
 
     <TextView
         android:id="@+id/rr_tipo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/cargo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toEndOf="@+id/rr_nombre"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rr_nombre" />
 
     <TextView
         android:id="@+id/rr_anio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="220dp"
         android:layout_marginTop="8dp"
-        android:text="@string/anio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.945"
-        app:layout_constraintStart_toEndOf="@+id/rr_marca"
-        app:layout_constraintTop_toBottomOf="@+id/rr_tipo" />
+        android:text="@string/a_o"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rr_marca" />
 
     <TextView
         android:id="@+id/rr_fecha"
@@ -78,7 +72,7 @@
         android:layout_height="19dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Entrada"
+        android:text="@string/entrada"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rr_fecha" />
 

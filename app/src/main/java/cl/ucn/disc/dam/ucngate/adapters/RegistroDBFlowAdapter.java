@@ -1,5 +1,6 @@
 package cl.ucn.disc.dam.ucngate.adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -105,6 +106,7 @@ public final class RegistroDBFlowAdapter extends BaseAdapter {
      * @param parent      The parent that this view will eventually be attached to
      * @return A View corresponding to the data at the specified position.
      */
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -127,13 +129,13 @@ public final class RegistroDBFlowAdapter extends BaseAdapter {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yy:HH:mm:SS");
             String fecha = dateFormat.format(registro.getFecha());
 
-            viewHolder.fecha.setText(fecha);
-            viewHolder.patente.setText(registro.getVehiculoIngresado().getPatente());
-            viewHolder.nombre.setText(registro.getVehiculoIngresado().getResponsable().getNombre());
-            viewHolder.marca.setText(registro.getVehiculoIngresado().getMarca());
-            viewHolder.anio.setText(registro.getVehiculoIngresado().getAnio());
-            viewHolder.tipo.setText(registro.getVehiculoIngresado().getResponsable().getTipo().toString());
-            viewHolder.entrada.setText(registro.getEntrada().toString());
+            viewHolder.fecha.setText("Fecha: "+fecha);
+            viewHolder.patente.setText("Patente: "+registro.getVehiculoIngresado().getPatente());
+            viewHolder.nombre.setText("Nombre: "+registro.getVehiculoIngresado().getResponsable().getNombre());
+            viewHolder.marca.setText("Marca: "+registro.getVehiculoIngresado().getMarca());
+            viewHolder.anio.setText("Anio: "+registro.getVehiculoIngresado().getAnio());
+            viewHolder.tipo.setText("Tipo: "+registro.getVehiculoIngresado().getResponsable().getTipo().toString());
+            viewHolder.entrada.setText("Entrada: "+registro.getEntrada().toString());
 
         }
 

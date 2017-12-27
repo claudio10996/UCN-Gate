@@ -100,7 +100,6 @@
     <string name="color">Color</string>
     <string name="veh_culo">Vehículo:</string>
     <string name="marca">Marca</string>
-    <string name="a_o">Año</string>
     <string name="descripci_n">Descripción</string>
     <string name="responsable">Responsable:</string>
     <string name="rut">Rut</string>
@@ -119,4 +118,6 @@
     <string name="modelo">Modelo</string>
     <string name="nombre">Nombre</string>
     <string name="patente">Patente</string>
+    <string name="a_o">Año</string>
+    <string name="entrada">Entrada</string>
 </resources>
