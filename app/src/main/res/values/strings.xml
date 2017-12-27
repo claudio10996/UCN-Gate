@@ -94,4 +94,7 @@
     <string name="menu_title">menu</string>
     <string name="search">Search</string>
     <string name="porteria">Porteria</string>
+    <string name="datos_vech_culo_y_del_responsable">Datos vechículo y del responsable</string>
+    <string name="datos_veh_culo_y_responsable">Datos vehículo y responsable</string>
+    <string name="registrar_ingreso">Registrar Ingreso</string>
 </resources>

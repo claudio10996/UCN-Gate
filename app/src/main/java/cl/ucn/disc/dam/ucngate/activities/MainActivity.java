@@ -2,6 +2,7 @@ package cl.ucn.disc.dam.ucngate.activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
@@ -13,11 +14,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.zip.Inflater;
 
@@ -95,6 +99,28 @@ public class MainActivity extends Activity {
 
             }
         });
+        lista.setClickable(true);//Para que se le pueda hacer click al item
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //Se crea la ventana popout
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+                View mView =getLayoutInflater().inflate(R.layout.vehiculo_dialog,null);
+                final TextView datos = (TextView) mView.findViewById(R.id.data_text);
+                Button registrar = (Button) mView.findViewById(R.id.btn_registrar);
+                //Se registra el ingreso en la base de datos
+                registrar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        datos.setText("hola");
+                    }
+                });
+                mBuilder.setView(mView);
+                AlertDialog dialog =mBuilder.create();
+                dialog.show();
+
+            }
+        });
 
 //        ViewGroup viewG = (ViewGroup) findViewById(android.R.id.content);
 //
@@ -126,6 +152,9 @@ public class MainActivity extends Activity {
 //            this.getDataTask();
 //        }
     }
+
+
+
 //
 //    /**
 //     * Called after {@link #onCreate} &mdash; or after {@link #onRestart} when
