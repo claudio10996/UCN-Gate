@@ -29,7 +29,9 @@ import java.util.zip.Inflater;
 
 import cl.ucn.disc.dam.ucngate.R;
 import cl.ucn.disc.dam.ucngate.adapters.VehiculoDBFlowAdapter;
+import cl.ucn.disc.dam.ucngate.model.Persona;
 import cl.ucn.disc.dam.ucngate.model.Registro;
+import cl.ucn.disc.dam.ucngate.model.Vehiculo;
 import cl.ucn.disc.dam.ucngate.tasks.GetDataTask;
 
 import lombok.Getter;
@@ -105,16 +107,57 @@ public class MainActivity extends Activity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //Obtener vehiculo y respondable
+                final Vehiculo vehi = (Vehiculo) adapterView.getAdapter().getItem(i);
+                final Persona resp = vehi.getResponsable();
+
                 //Se crea la ventana popout
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
                 View mView =getLayoutInflater().inflate(R.layout.vehiculo_dialog,null);
-                final TextView datos = (TextView) mView.findViewById(R.id.data_text);
+
+                //Datos a deplegar
+                TextView patente = (TextView) mView.findViewById(R.id.patente_text);
+                patente.append(": "+ vehi.getPatente());
+                TextView color = (TextView) mView.findViewById(R.id.color_text);
+                color.append(": "+ vehi.getColor());
+                TextView marca = (TextView) mView.findViewById(R.id.marca_text);
+                marca.append(": "+ vehi.getMarca());
+                TextView modelo = (TextView) mView.findViewById(R.id.model_text);
+                modelo.append(": "+ vehi.getModelo());
+                TextView anio = (TextView) mView.findViewById(R.id.year_text);
+                anio.append(": "+ vehi.getAnio());
+                TextView descripcion = (TextView) mView.findViewById(R.id.description_text);
+                descripcion.append(": "+ vehi.getDescripcion());
+
+                TextView nombre = (TextView) mView.findViewById(R.id.nombre_text);
+                nombre.append(": "+ resp.getNombre());
+                TextView rut = (TextView) mView.findViewById(R.id.rut_text);
+                rut.append(": "+ resp.getRut());
+                TextView correo = (TextView) mView.findViewById(R.id.mail_text);
+                correo.append(": "+ resp.getEmail());
+                TextView telefono = (TextView) mView.findViewById(R.id.phone_text);
+                telefono.append(": "+ resp.getTelefono());
+                TextView anexo = (TextView) mView.findViewById(R.id.anexo_text);
+                anexo.append(": "+ resp.getAnexo());
+                TextView unidad = (TextView) mView.findViewById(R.id.unidad_text);
+                unidad.append(": "+ resp.getUnidad());
+                TextView oficina = (TextView) mView.findViewById(R.id.oficina_text);
+                oficina.append(": "+ resp.getOficina());
+                TextView tipo = (TextView) mView.findViewById(R.id.tipo_text);
+                tipo.append(": "+ resp.getTipo());
+                TextView cargo = (TextView) mView.findViewById(R.id.cargo_text);
+                cargo.append(": "+ resp.getCargo());
+                TextView codigo = (TextView) mView.findViewById(R.id.code_text);
+                codigo.append(": "+ resp.getCodigoEstacionamiento());
+
+                //botón registrar
                 Button registrar = (Button) mView.findViewById(R.id.btn_registrar);
-                //Se registra el ingreso en la base de datos
+
+                //Se registrar el ingreso en la base de datos
                 registrar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        datos.setText("hola");
+                        //TODO: REGISTRAR INGRESO
                     }
                 });
                 mBuilder.setView(mView);
